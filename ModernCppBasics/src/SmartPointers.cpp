@@ -1,9 +1,9 @@
-#define RUN_SMAARTPTR
+//#define RUN_SMAARTPTR
 
 #include <iostream>
 #include <memory>
 
-
+namespace SmartPointers {
 	class vec2 {
 	private:
 		double x;
@@ -78,25 +78,25 @@
 
 		}
 	};
-
+} // namespace SmartPointers
 
 #ifdef RUN_SMAARTPTR
-	int main() {
+int main() {
 
-		std::unique_ptr<triangle> ptr1(new triangle(vec2(-1, 0), vec2(0, 1), vec2(1, 0)));
+	std::unique_ptr<SmartPointers::triangle> ptr1(new SmartPointers::triangle(SmartPointers::vec2(-1, 0), SmartPointers::vec2(0, 1), SmartPointers::vec2(1, 0)));
 
-		std::shared_ptr<triangle> ptr2(new triangle(vec2(-1, 2), vec2(2, 1), vec2(1, 2)));
+	std::shared_ptr<SmartPointers::triangle> ptr2(new SmartPointers::triangle(SmartPointers::vec2(-1, 2), SmartPointers::vec2(2, 1), SmartPointers::vec2(1, 2)));
 
-		std::shared_ptr<triangle> ptr3 = ptr2; // shared ownership
+	std::shared_ptr<SmartPointers::triangle> ptr3 = ptr2; // shared ownership
 
-		std::cout << "Drawing triangles:" << std::endl;
-		std::cout << "ptr1\n";
-		ptr1.get()->draw();
-		std::cout << "ptr2\n";
-		ptr2.get()->draw();
-		std::cout << "ptr3\n";
-		ptr3.get()->draw();
-		
-		return 0;
-	}
+	std::cout << "Drawing triangles:" << std::endl;
+	std::cout << "ptr1\n";
+	ptr1.get()->draw();
+	std::cout << "ptr2\n";
+	ptr2.get()->draw();
+	std::cout << "ptr3\n";
+	ptr3.get()->draw();
+
+	return 0;
+}
 #endif

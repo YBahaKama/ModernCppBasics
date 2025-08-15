@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Move-Semantics.cpp" />
     <ClCompile Include="src\RAII.cpp" />
     <ClCompile Include="src\SmartPointers.cpp" />
   </ItemGroup>
